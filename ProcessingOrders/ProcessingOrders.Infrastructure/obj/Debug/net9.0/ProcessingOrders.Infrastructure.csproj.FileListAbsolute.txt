@@ -1,0 +1,15 @@
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\bin\Debug\net9.0\ProcessingOrders.Infrastructure.deps.json
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\bin\Debug\net9.0\ProcessingOrders.Infrastructure.dll
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\bin\Debug\net9.0\ProcessingOrders.Infrastructure.pdb
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\bin\Debug\net9.0\ProcessingOrders.CoreDomain.dll
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\bin\Debug\net9.0\ProcessingOrders.CoreDomain.pdb
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\obj\Debug\net9.0\ProcessingOrders.Infrastructure.csproj.AssemblyReference.cache
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\obj\Debug\net9.0\ProcessingOrders.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\obj\Debug\net9.0\ProcessingOrders.Infrastructure.AssemblyInfoInputs.cache
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\obj\Debug\net9.0\ProcessingOrders.Infrastructure.AssemblyInfo.cs
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\obj\Debug\net9.0\ProcessingOrders.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\obj\Debug\net9.0\Processi.FA63C4B8.Up2Date
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\obj\Debug\net9.0\ProcessingOrders.Infrastructure.dll
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\obj\Debug\net9.0\refint\ProcessingOrders.Infrastructure.dll
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\obj\Debug\net9.0\ProcessingOrders.Infrastructure.pdb
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.Infrastructure\obj\Debug\net9.0\ref\ProcessingOrders.Infrastructure.dll

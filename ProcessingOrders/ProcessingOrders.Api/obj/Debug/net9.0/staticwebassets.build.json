@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "YvUMF/Olc3DLXmvm1W9j4Z8M7ha62JO2+AiI9AvUqZw=",
+  "Source": "ProcessingOrders.Api",
+  "BasePath": "_content/ProcessingOrders.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

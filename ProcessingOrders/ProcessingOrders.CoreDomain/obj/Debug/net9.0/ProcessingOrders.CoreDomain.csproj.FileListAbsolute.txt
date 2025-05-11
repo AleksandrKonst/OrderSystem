@@ -1,0 +1,11 @@
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\bin\Debug\net9.0\ProcessingOrders.CoreDomain.deps.json
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\bin\Debug\net9.0\ProcessingOrders.CoreDomain.dll
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\bin\Debug\net9.0\ProcessingOrders.CoreDomain.pdb
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.AssemblyInfoInputs.cache
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.AssemblyInfo.cs
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.csproj.CoreCompileInputs.cache
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.dll
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\refint\ProcessingOrders.CoreDomain.dll
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.pdb
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ref\ProcessingOrders.CoreDomain.dll

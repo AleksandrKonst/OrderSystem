@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.1.1" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ProcessingOrders.CoreDomain\ProcessingOrders.CoreDomain.csproj" />
+      <ProjectReference Include="..\ProcessingOrders.Infrastructure\ProcessingOrders.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project> 

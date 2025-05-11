@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option go_package = "./proto";
+
+package promotions;
+
+service Promotions {
+  rpc GetProductPromotion (GetProductPromotionRequest) returns (PromotionResponse);
+  
+  rpc GetAllActivePromotions (GetAllActivePromotionsRequest) returns (PromotionsListResponse);
+}
+
+message GetProductPromotionRequest {
+  string product_id = 1;
+}
+
+message GetAllActivePromotionsRequest {
+  // Empty request
+}
+
+message PromotionResponse {
+  Promotion promotion = 1;
+}
+
+message PromotionsListResponse {
+  repeated Promotion promotions = 1;
+}
+
+message Promotion {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  double discount_percentage = 4;
+  string valid_until = 5;
+} 
