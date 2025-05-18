@@ -11,8 +11,8 @@ namespace ProcessingOrders.Infrastructure.Kafka;
 
 public class KafkaMessageBus : IMessageBus
 {
-    private readonly IProducer<string, string> _producer;
     private readonly KafkaSettings _settings;
+    private readonly IProducer<string, string> _producer;
     private readonly ILogger<KafkaMessageBus> _logger;
 
     public KafkaMessageBus(
@@ -75,6 +75,6 @@ public class KafkaMessageBus : IMessageBus
 
     public void Dispose()
     {
-        _producer?.Dispose();
+        _producer.Dispose();
     }
 } 

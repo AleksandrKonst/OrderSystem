@@ -1,59 +1,47 @@
 # ProcessingOrders
 
-ProcessingOrders is a microservice for processing orders, built using Domain-Driven Design (DDD) principles.
+ProcessingOrders - это микросервис для обработки заказов, построенный с использованием принципов предметно-ориентированного проектирования (DDD).
 
-## Project Structure
+## Структура проекта
 
-The project is organized according to the principles of clean architecture and DDD:
+Проект организован в соответствии с принципами чистой архитектуры и DDD:
 
-- **ProcessingOrders.CoreDomain** - the core domain, containing business entities, rules, and repository interfaces
-- **ProcessingOrders.Application** - contains the application business logic, implemented through commands/queries (CQRS)
-- **ProcessingOrders.Api** - the API layer, providing an HTTP interface for working with orders
-- **ProcessingOrders.Persistence** - data access implementation, including repositories and Entity Framework
-- **ProcessingOrders.Infrastructure** - infrastructure services, including a GRPC client for interacting with the promotions microservice
+- **ProcessingOrders.CoreDomain** - ядро домена, содержащее бизнес-сущности, правила и интерфейсы репозиториев
+- **ProcessingOrders.Application** - содержит бизнес-логику приложения, реализованную через команды/запросы (CQRS)
+- **ProcessingOrders.Api** - слой API, предоставляющий HTTP-интерфейс для работы с заказами
+- **ProcessingOrders.Persistence** - реализация доступа к данным, включая репозитории и Entity Framework
+- **ProcessingOrders.Infrastructure** - инфраструктурные сервисы, включая GRPC-клиент для взаимодействия с микросервисом акций
 
-## Main Features
+## Основные возможности
 
-- Order creation
-- Order status management (processing, completion, cancellation)
-- Adding and removing items from the order
-- Automatic total cost calculation
-- Retrieving order information and a list of customer orders
-- Integration with the promotions service via gRPC (stub)
-
-## Running the Project
-
-1. Install .NET 7.0 SDK
-2. Configure the connection string in `appsettings.json`
-3. Apply database migrations: `dotnet ef database update --project ProcessingOrders.Persistence --startup-project ProcessingOrders.Api`
-4. Run the API: `dotnet run --project ProcessingOrders.Api`
+- Создание заказа
+- Управление статусом заказа (обработка, завершение, отмена)
+- Добавление и удаление позиций из заказа
+- Автоматический расчет общей стоимости
+- Получение информации о заказе и списка заказов клиента
+- Интеграция с сервисом акций через gRPC
 
 ## API
 
-The API is documented using Swagger. After starting the application, the documentation is available at `/swagger`.
+API документировано с использованием Swagger. После запуска приложения документация доступна по адресу `/swagger`.
 
-Main endpoints:
+Основные конечные точки:
 
-- `POST /api/orders` - create a new order
-- `PUT /api/orders/{id}/status` - update order status
-- `GET /api/orders/{id}` - get order by ID
-- `GET /api/orders/customer/{customerId}` - get a list of customer orders
+- `POST /api/orders` - создать новый заказ
+- `PUT /api/orders/{id}/status` - обновить статус заказа
+- `GET /api/orders/{id}` - получить заказ по ID
+- `GET /api/orders/customer/{customerId}` - получить список заказов клиента
 
-## Domain Model
+## Доменная модель
 
-### Order Aggregate
+### Агрегат Order
 
-The main aggregate is `Order`. The aggregate consists of:
-- `Order` - the aggregate root
-- `OrderItem` - an item in the order
-- `OrderEvent` - an order event
+Основной агрегат - `Order`. Агрегат состоит из:
+- `Order` - корень агрегата
+- `OrderItem` - позиция в заказе
+- `OrderEvent` - событие заказа
 
-### CQRS Support
+### Поддержка CQRS
 
-The application uses the CQRS pattern through MediatR:
-- Commands: CreateOrderCommand, UpdateOrderStatusCommand
-- Queries: (stubs for future implementation)
-
-### Integration with Other Microservices
-
-The project contains a stub for integrating with the promotions microservice through gRPC. Full implementation requires the implementation of the gRPC server-side service.
+Приложение использует паттерн CQRS через MediatR:
+- Команды: CreateOrderCommand, UpdateOrderStatusCommand

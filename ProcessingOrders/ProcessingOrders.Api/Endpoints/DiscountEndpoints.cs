@@ -1,10 +1,6 @@
 using MediatR;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using ProcessingOrders.Application.Features.Orders.Commands.ApplyDiscount;
 using ProcessingOrders.Application.Services;
-using System.Threading.Tasks;
 
 namespace ProcessingOrders.Api.Endpoints;
 

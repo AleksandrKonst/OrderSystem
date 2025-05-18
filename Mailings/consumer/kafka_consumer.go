@@ -59,7 +59,6 @@ func (c *KafkaConsumer) Start(ctx context.Context) error {
 			default:
 				msg, err := c.consumer.ReadMessage(100 * time.Millisecond)
 				if err != nil {
-					// Таймаут не является ошибкой
 					if err.(kafka.Error).Code() != kafka.ErrTimedOut {
 						log.Printf("Ошибка чтения сообщения: %v", err)
 					}

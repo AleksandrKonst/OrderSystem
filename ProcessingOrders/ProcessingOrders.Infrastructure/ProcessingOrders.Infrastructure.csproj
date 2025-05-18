@@ -22,9 +22,11 @@
     <ItemGroup>
       <ProjectReference Include="..\ProcessingOrders.CoreDomain\ProcessingOrders.CoreDomain.csproj" />
     </ItemGroup>
-    
-    <ItemGroup>
-      <Protobuf Include="Protos\promotions.proto" GrpcServices="Client" />
-    </ItemGroup>
 
+    <ItemGroup>
+        <Protobuf Include="Protos/promotions.proto" GrpcServices="Client">
+            <Link>Protos/promotions.proto</Link>
+        </Protobuf>
+    </ItemGroup>
+    
 </Project> 

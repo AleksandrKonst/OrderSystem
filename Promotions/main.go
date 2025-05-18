@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"log"
 	"net"
 	"net/http"
@@ -10,11 +11,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/promotions/api"
-	"github.com/promotions/internal/repository"
-	"github.com/promotions/internal/service"
-	pb "github.com/promotions/proto"
 	"google.golang.org/grpc"
+	"promotions/api"
+	"promotions/internal/repository"
+	"promotions/internal/service"
+	pb "promotions/proto/gen"
 )
 
 const (
@@ -49,7 +50,7 @@ func main() {
 
 	go func() {
 		log.Printf("Starting HTTP server on port %s", httpPort)
-		if err := httpServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		if err := httpServer.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			log.Fatalf("Failed to serve HTTP server: %v", err)
 		}
 	}()

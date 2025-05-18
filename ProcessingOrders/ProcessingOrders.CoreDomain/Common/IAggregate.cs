@@ -6,5 +6,5 @@ public interface IAggregate
 {
     IReadOnlyList<IDomainEvent> DomainEvents { get; }
     void AddDomainEvent(IDomainEvent domainEvent);
-    IEvent[] ClearDomainEvents();
+    IDomainEvent[] ClearDomainEvents();
 } 

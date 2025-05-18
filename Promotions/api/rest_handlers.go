@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
-	"github.com/promotions/internal/models"
-	"github.com/promotions/internal/repository"
-	"github.com/promotions/internal/service"
 	"net/http"
+	"promotions/internal/models"
+	"promotions/internal/repository"
+	"promotions/internal/service"
 	"time"
 )
 
@@ -26,7 +26,6 @@ type ProductPromotionRequest struct {
 func NewRestServer(promotionService *service.PromotionService) http.Handler {
 	r := chi.NewRouter()
 
-	// Middleware
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 	r.Use(middleware.RequestID)
@@ -38,8 +37,6 @@ func NewRestServer(promotionService *service.PromotionService) http.Handler {
 		r.Route("/promotions", func(r chi.Router) {
 			r.Get("/", getAllPromotions(promotionService))
 			r.Post("/", createPromotion(promotionService))
-
-			// Single promotion routes
 			r.Route("/{id}", func(r chi.Router) {
 				r.Get("/", getPromotionByID(promotionService))
 				r.Put("/", updatePromotion(promotionService))

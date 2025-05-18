@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProcessingOrders.Api.Models;
 using ProcessingOrders.Application.Features.Orders.Commands.CreateOrder;
@@ -29,7 +24,7 @@ public static class OrderEndpoints
         orders.MapPut("/{id}/status", UpdateOrderStatus)
             .WithName("UpdateOrderStatus")
             .WithDescription("Обновляет статус заказа. Возможные статусы: Processing, Completed, Cancelled.")
-            .Produces<OrderResponse>(StatusCodes.Status200OK)
+            .Produces<OrderResponse>()
             .Produces(StatusCodes.Status400BadRequest)
             .Produces(StatusCodes.Status404NotFound);
 

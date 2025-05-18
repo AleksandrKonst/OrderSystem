@@ -36,7 +36,10 @@ bld/
 #wwwroot/
 
 .idea/
+bin/
 obj/
+**/bin/
+**/obj/
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/

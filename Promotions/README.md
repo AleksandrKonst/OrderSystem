@@ -1,70 +1,68 @@
-# Promotions Microservice
+# Микросервис управления промоакциями
 
-A microservice for managing product promotions with both REST API and gRPC interfaces.
+## Возможности
 
-## Features
-
-- Get active promotions for a specific product
-- Get all active promotions
-- Create, update, and delete promotions
-- Assign promotions to products
+- Получение активных промоакций для конкретного товара
+- Получение всех активных промоакций
+- Создание, обновление и удаление промоакций
+- Назначение промоакций товарам
 
 ## API Endpoints
 
 ### REST API (HTTP)
 
-Base URL: `http://localhost:8080/api/v1`
+Базовый URL: `http://localhost:8080/api/v1`
 
-#### Promotions
+#### Промоакции
 
-- `GET /promotions` - Get all active promotions
-- `POST /promotions` - Create a new promotion
-- `GET /promotions/{id}` - Get a specific promotion by ID
-- `PUT /promotions/{id}` - Update a promotion
-- `DELETE /promotions/{id}` - Delete a promotion
+- `GET /promotions` - Получить все активные промоакции
+- `POST /promotions` - Создать новую промоакцию
+- `GET /promotions/{id}` - Получить промоакцию по ID
+- `PUT /promotions/{id}` - Обновить промоакцию
+- `DELETE /promotions/{id}` - Удалить промоакцию
 
-#### Product Promotions
+#### Промоакции товаров
 
-- `GET /product-promotions/{productID}` - Get promotion for a specific product
-- `POST /product-promotions` - Assign a promotion to a product
+- `GET /product-promotions/{productID}` - Получить промоакцию для конкретного товара
+- `POST /product-promotions` - Назначить промоакцию товару
 
 ### gRPC API
 
-The service exposes the following gRPC methods:
+Сервис предоставляет следующие методы gRPC:
 
-- `GetProductPromotion(GetProductPromotionRequest) returns (PromotionResponse)`
-- `GetAllActivePromotions(GetAllActivePromotionsRequest) returns (PromotionsListResponse)`
+- `GetProductPromotion(GetProductPromotionRequest) returns (PromotionResponse)` - Получить промоакцию для товара
+- `GetAllActivePromotions(GetAllActivePromotionsRequest) returns (PromotionsListResponse)` - Получить все активные промоакции
 
-## Running the Service
+## Запуск сервиса
 
 ```bash
-# Install dependencies
-go mod download
+# Установка зависимостей
+go mod tidy
 
-# Run the service
-go run cmd/main.go
+# Запуск сервиса
+go run main.go
 ```
 
-The service will start:
-- REST API at http://localhost:8080
-- gRPC server at localhost:50051
+Сервис запустится на:
+- REST API: http://localhost:8080
+- gRPC сервер: localhost:50051
 
-## Example Usage
+## Примеры использования
 
-### Create a Promotion (REST)
+### Создание промоакции (REST)
 
 ```bash
 curl -X POST http://localhost:8080/api/v1/promotions \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "Summer Sale",
-    "description": "25% off on summer items",
+    "name": "Летняя распродажа",
+    "description": "Скидка 25% на летние товары",
     "discount_percentage": 25.0,
     "valid_until": "2023-12-31T23:59:59Z"
   }'
 ```
 
-### Assign a Promotion to a Product (REST)
+### Назначение промоакции товару (REST)
 
 ```bash
 curl -X POST http://localhost:8080/api/v1/product-promotions \
@@ -75,13 +73,13 @@ curl -X POST http://localhost:8080/api/v1/product-promotions \
   }'
 ```
 
-### Get a Product's Promotion (REST)
+### Получение промоакции товара (REST)
 
 ```bash
 curl http://localhost:8080/api/v1/product-promotions/product123
 ```
 
-## Dependencies
+## Зависимости
 
-- [go-chi/chi](https://github.com/go-chi/chi) - For REST API routing
-- [gRPC](https://grpc.io/) - For gRPC API 
+- [go-chi/chi](https://github.com/go-chi/chi) - Для маршрутизации REST API
+- gRPC - Для gRPC API 

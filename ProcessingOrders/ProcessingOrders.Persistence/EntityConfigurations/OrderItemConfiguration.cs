@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProcessingOrders.CoreDomain.Entities;
-using ProcessingOrders.CoreDomain.ValueObjects;
 
 namespace ProcessingOrders.Persistence.EntityConfigurations;
 

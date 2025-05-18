@@ -25,7 +25,8 @@ public class ApplyDiscountCommandHandler : IRequestHandler<ApplyDiscountCommand,
             throw new ArgumentException($"Заказ с id {request.OrderId} не найден");
             
         if (orderAggregate.Order.Status is OrderStatus.Cancelled or OrderStatus.Completed)
-            throw new InvalidOperationException($"Нельзя применить скидку к заказу в статусе {orderAggregate.Order.Status}");
+            throw new InvalidOperationException(
+                $"Нельзя применить скидку к заказу в статусе {orderAggregate.Order.Status}");
         
         var discount = Discount.Create(
             request.DiscountId,

@@ -5,6 +5,7 @@ D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.
 D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.AssemblyInfoInputs.cache
 D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.AssemblyInfo.cs
 D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.csproj.CoreCompileInputs.cache
+D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.sourcelink.json
 D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.dll
 D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\refint\ProcessingOrders.CoreDomain.dll
 D:\Programs\Rider\ConsoleAppAsync\OrderSystem\ProcessingOrders\ProcessingOrders.CoreDomain\obj\Debug\net9.0\ProcessingOrders.CoreDomain.pdb

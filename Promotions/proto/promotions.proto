@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-option go_package = "./proto";
+option go_package = "./gen";
+option csharp_namespace = "ProcessingOrders.Infrastructure.Protos";
 
 package promotions;
 
@@ -15,7 +16,6 @@ message GetProductPromotionRequest {
 }
 
 message GetAllActivePromotionsRequest {
-  // Empty request
 }
 
 message PromotionResponse {

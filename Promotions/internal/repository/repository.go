@@ -2,7 +2,7 @@ package repository
 
 import (
 	"context"
-	"github.com/promotions/internal/models"
+	"promotions/internal/models"
 )
 
 type PromotionRepository interface {

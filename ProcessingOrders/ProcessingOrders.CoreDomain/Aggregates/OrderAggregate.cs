@@ -16,10 +16,12 @@ public class OrderAggregate : Aggregate<long>
     public static OrderAggregate Create(CustomerId customerId, List<OrderItemData> itemsData)
     {
         if (customerId is null)
-            throw new ArgumentNullException(nameof(customerId), "CustomerId не может быть null");
+            throw new ArgumentNullException(
+                nameof(customerId), "CustomerId не может быть null");
 
         if (itemsData == null || itemsData.Count == 0)
-            throw new ArgumentException("Заказ должен содержать хотя бы один товар", nameof(itemsData));
+            throw new ArgumentException(
+                "Заказ должен содержать хотя бы один товар", nameof(itemsData));
 
 
         var defaultCurrency = itemsData.FirstOrDefault()?.Currency ?? "RUB";
@@ -48,8 +50,6 @@ public class OrderAggregate : Aggregate<long>
         {
             throw new InvalidOperationException("Order must be saved to database first to get an ID");
         }
-        
-        System.Console.WriteLine($"Adding items to order with ID: {Id}");
         
         var items = new List<OrderItem>();
         foreach (var data in itemsData)
@@ -91,10 +91,10 @@ public class OrderAggregate : Aggregate<long>
         return aggregate;
     }
 
-    private static Money CalculateTotalAmount(List<OrderItem> items)
+    private static Money CalculateTotalAmount(IList<OrderItem> items)
     {
         if (items.Count == 0)
-            return new Money(0, "RUB"); // Default currency if no items
+            return new Money(0, "RUB");
             
         var total = items.Sum(item => item.Price.Amount * item.Quantity);
             
@@ -105,7 +105,8 @@ public class OrderAggregate : Aggregate<long>
     public void AddItem(string productId, string productName, int quantity, decimal price, string currency)
     {
         if (Order.Status != OrderStatus.Created)
-            throw new InvalidOperationException("Нельзя добавлять товары к заказу в статусе " + Order.Status);
+            throw new InvalidOperationException(
+                "Нельзя добавлять товары к заказу в статусе " + Order.Status);
 
         var item = OrderItem.Create(
             Id,
@@ -124,11 +125,13 @@ public class OrderAggregate : Aggregate<long>
     public void RemoveItem(long itemId)
     {
         if (Order.Status != OrderStatus.Created)
-            throw new InvalidOperationException("Нельзя удалять товары из заказа в статусе " + Order.Status);
+            throw new InvalidOperationException(
+                "Нельзя удалять товары из заказа в статусе " + Order.Status);
 
         var itemToRemove = Items.Find(i => i.Id == itemId);
         if (itemToRemove is null)
-            throw new ArgumentException($"Товар с id {itemId} не найден в заказе", nameof(itemId));
+            throw new ArgumentException(
+                $"Товар с id {itemId} не найден в заказе", nameof(itemId));
 
         Items.Remove(itemToRemove);
         RecalculateTotalAmount();
@@ -159,10 +162,12 @@ public class OrderAggregate : Aggregate<long>
     public void ApplyDiscount(Discount discount)
     {
         if (Order.Status != OrderStatus.Created && Order.Status != OrderStatus.Processing)
-            throw new InvalidOperationException($"Нельзя применить скидку к заказу в статусе {Order.Status}");
+            throw new InvalidOperationException(
+                $"Нельзя применить скидку к заказу в статусе {Order.Status}");
             
         if (!discount.IsValid())
-            throw new InvalidOperationException($"Скидка {discount.Id} недействительна");
+            throw new InvalidOperationException(
+                $"Скидка {discount.Id} недействительна");
             
         var originalAmount = Order.TotalAmount;
         Order.ApplyDiscount(discount);
@@ -198,11 +203,6 @@ public class OrderAggregate : Aggregate<long>
         }
     }
     
-    public bool CanApplyProductDiscount(string productId)
-    {
-        return Items.Any(i => i.ProductId == productId);
-    }
-    
     public List<string> GetAllProductIds()
     {
         return Items.Select(i => i.ProductId).Distinct().ToList();
@@ -211,7 +211,8 @@ public class OrderAggregate : Aggregate<long>
     public void ProcessOrder()
     {
         if (Order.Status != OrderStatus.Created)
-            throw new InvalidOperationException($"Заказ должен быть в статусе Created, текущий статус: {Order.Status}");
+            throw new InvalidOperationException(
+                $"Заказ должен быть в статусе Created, текущий статус: {Order.Status}");
 
         var previousStatus = Order.Status;
         Order.UpdateStatus(OrderStatus.Processing);
@@ -222,7 +223,8 @@ public class OrderAggregate : Aggregate<long>
     public void CompleteOrder()
     {
         if (Order.Status != OrderStatus.Processing)
-            throw new InvalidOperationException($"Заказ должен быть в статусе Processing, текущий статус: {Order.Status}");
+            throw new InvalidOperationException(
+                $"Заказ должен быть в статусе Processing, текущий статус: {Order.Status}");
 
         var previousStatus = Order.Status;
         Order.UpdateStatus(OrderStatus.Completed);

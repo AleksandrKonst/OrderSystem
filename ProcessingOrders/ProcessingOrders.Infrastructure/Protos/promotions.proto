@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+option go_package = "./gen";
 option csharp_namespace = "ProcessingOrders.Infrastructure.Protos";
 
 package promotions;
@@ -10,14 +11,11 @@ service Promotions {
   rpc GetAllActivePromotions (GetAllActivePromotionsRequest) returns (PromotionsListResponse);
 }
 
-
 message GetProductPromotionRequest {
   string product_id = 1;
 }
 
-
 message GetAllActivePromotionsRequest {
-  
 }
 
 message PromotionResponse {
@@ -27,7 +25,6 @@ message PromotionResponse {
 message PromotionsListResponse {
   repeated Promotion promotions = 1;
 }
-
 
 message Promotion {
   string id = 1;

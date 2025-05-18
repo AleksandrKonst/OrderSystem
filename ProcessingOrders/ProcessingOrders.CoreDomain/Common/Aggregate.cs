@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ProcessingOrders.CoreDomain.Common;
 
@@ -13,9 +12,9 @@ public abstract class Aggregate<TId> : Entity<TId>, IAggregate
         _domainEvents.Add(domainEvent);
     }
 
-    public IEvent[] ClearDomainEvents()
+    public IDomainEvent[] ClearDomainEvents()
     {
-        IEvent[] dequeuedEvents = _domainEvents.ToArray();
+        var dequeuedEvents = _domainEvents.ToArray();
 
         _domainEvents.Clear();
 

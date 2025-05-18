@@ -3,10 +3,12 @@ package service
 import (
 	"context"
 	"encoding/json"
-	"github.com/promotions/internal/repository"
-	pb "github.com/promotions/proto"
+	"errors"
 	"log"
 	"time"
+
+	"promotions/internal/repository"
+	pb "promotions/proto/gen"
 )
 
 type GRPCServer struct {
@@ -26,7 +28,7 @@ func (s *GRPCServer) GetProductPromotion(ctx context.Context, req *pb.GetProduct
 
 	promotion, err := s.service.GetPromotionByProductID(ctx, req.ProductId)
 	if err != nil {
-		if err == repository.ErrPromotionNotFound {
+		if errors.Is(err, repository.ErrPromotionNotFound) {
 			log.Printf("[gRPC] Скидка для продукта %s не найдена", req.ProductId)
 			return &pb.PromotionResponse{
 				Promotion: nil,

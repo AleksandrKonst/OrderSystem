@@ -13,7 +13,8 @@ public static class ApplicationServiceCollectionExtensions
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, 
         IConfiguration configuration)
     {
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        services.AddMediatR(cfg => 
+            cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         
         services.AddScoped<DiscountService>();
         

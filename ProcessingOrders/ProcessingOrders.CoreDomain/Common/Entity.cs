@@ -2,30 +2,26 @@ namespace ProcessingOrders.CoreDomain.Common;
 
 public abstract class Entity<TId>
 {
-    int? _requestedHashCode;
-    
-    TId? _id;
-    public TId Id
-    {
-        get
-        {
-            return _id;
-        }
-        set
-        {
-            _id = value;
-        }
-    }
-    
-    public bool IsTransient() => Id.Equals(default(TId));
+    public required TId Id { get; set; }
+
+    private bool IsTransient() => Id != null && Id.Equals(default(TId));
     
     public override bool Equals(object? obj)
     {
-        if (obj is not Entity<TId>)
-        {
-            return false;
-        }
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != GetType()) return false;
+        return Equals((Entity<TId>)obj);
+    }
 
+    public override int GetHashCode()
+    {
+        // ReSharper disable once BaseObjectGetHashCodeCallInGetHashCode
+        return base.GetHashCode();
+    }
+
+    private bool Equals(Entity<TId> obj)
+    {
         if (ReferenceEquals(this, obj))
         {
             return true;
@@ -36,41 +32,16 @@ public abstract class Entity<TId>
             return false;
         }
 
-        var item = (Entity<TId>) obj;
-
-        if (item.IsTransient() || IsTransient())
+        if (obj.IsTransient() || IsTransient())
         {
             return false;
         }
-        else
-        {
-            return item.Id.Equals(Id);
-        }
-    }
-    
-    public override int GetHashCode()
-    {
-        if (!IsTransient())
-        {
-            _requestedHashCode ??= Id.GetHashCode() ^ 31;
-
-            return _requestedHashCode.Value;
-        }
-        else
-            return base.GetHashCode();
-
+        return obj.Id != null && obj.Id.Equals(Id);
     }
     
     public static bool operator == (Entity<TId> left, Entity<TId> right)
     {
-        if (Equals(left, null))
-        {
-            return (Equals(right, null)) ? true : false;
-        }
-        else
-        {
-            return left.Equals(right);
-        }
+        return Equals(left, null) ? Equals(right, null) : left.Equals(right);
     }
     
     public static bool operator != (Entity<TId> left, Entity<TId> right)

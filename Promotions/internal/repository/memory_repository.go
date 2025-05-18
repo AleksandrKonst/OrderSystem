@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/promotions/internal/models"
+	"promotions/internal/models"
 )
 
 var (
@@ -14,8 +14,7 @@ var (
 )
 
 type MemoryRepository struct {
-	promotions map[string]*models.Promotion
-	// Product ID to promotion ID mapping
+	promotions         map[string]*models.Promotion
 	productToPromotion map[string]string
 	mu                 sync.RWMutex
 }
@@ -32,14 +31,14 @@ func NewMemoryRepository() *MemoryRepository {
 			Name:               "Spring Sale",
 			Description:        "20% off all spring items",
 			DiscountPercentage: 20.0,
-			ValidUntil:         time.Now().AddDate(0, 1, 0), // Valid for 1 month
+			ValidUntil:         time.Now().AddDate(0, 1, 0),
 		},
 		{
 			ID:                 "promo2",
 			Name:               "New Customer Discount",
 			Description:        "15% off for new customers",
 			DiscountPercentage: 15.0,
-			ValidUntil:         time.Now().AddDate(0, 3, 0), // Valid for 3 months
+			ValidUntil:         time.Now().AddDate(0, 3, 0),
 		},
 	}
 

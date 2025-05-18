@@ -36,8 +36,9 @@ namespace ProcessingOrders.Infrastructure.Protos {
             "b21vdGlvbnMuR2V0UHJvZHVjdFByb21vdGlvblJlcXVlc3QaHS5wcm9tb3Rp",
             "b25zLlByb21vdGlvblJlc3BvbnNlEmcKFkdldEFsbEFjdGl2ZVByb21vdGlv",
             "bnMSKS5wcm9tb3Rpb25zLkdldEFsbEFjdGl2ZVByb21vdGlvbnNSZXF1ZXN0",
-            "GiIucHJvbW90aW9ucy5Qcm9tb3Rpb25zTGlzdFJlc3BvbnNlQimqAiZQcm9j",
-            "ZXNzaW5nT3JkZXJzLkluZnJhc3RydWN0dXJlLlByb3Rvc2IGcHJvdG8z"));
+            "GiIucHJvbW90aW9ucy5Qcm9tb3Rpb25zTGlzdFJlc3BvbnNlQjBaBS4vZ2Vu",
+            "qgImUHJvY2Vzc2luZ09yZGVycy5JbmZyYXN0cnVjdHVyZS5Qcm90b3NiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
