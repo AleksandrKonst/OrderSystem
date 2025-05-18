@@ -45,6 +45,44 @@ docker-compose up -d
 - **PostgreSQL** для хранения данных в сервисах Mailings и Promotions
 - **PgAdmin** для управления PostgreSQL
 
+## Диаграмма архитектуры
+
+```
++-------------------------+      gRPC       +-------------------------+
+|                         |<--------------->|                         |
+|    ProcessingOrders     |                 |      Promotions         |
+|    (C# / .NET)          |                 |      (Golang)           |
+|                         |                 |                         |
++------------|------------+                 +------------|------------+
+             |                                           |
+             | События                                   | События
+             | (Kafka)                                   | (Kafka)
+             v                                           v
+      +-------------+                            +-------------+
+      |             |                            |             |
+      |    Kafka    |<-------------------------->|  PostgreSQL |
+      |             |                            |             |
+      +------|------+                            +-------------+
+             |                                          ^
+             | События                                  |
+             | (Kafka)                                  |
+             v                                          |
++-------------------------+                             |
+|                         |                             |
+|      Mailings           |-----------------------------|
+|      (Golang)           |
+|                         |
++-------------------------+
+```
+
+- **Синхронные взаимодействия**: 
+  - ProcessingOrders -> Promotions (gRPC запросы для получения информации о скидках)
+  
+- **Асинхронные взаимодействия**:
+  - ProcessingOrders -> Kafka -> Mailings (события заказов)
+  - Promotions -> Kafka (события об акциях)
+  - Mailings -> Kafka (подписка на события)
+
 ## Доступ к сервисам
 
 После запуска, сервисы будут доступны по следующим адресам:
@@ -59,6 +97,30 @@ docker-compose up -d
 - **PostgreSQL**: localhost:5432
   - Логин: postgres
   - Пароль: postgres
+
+## Основные API эндпоинты
+
+### ProcessingOrders API
+
+- **POST /api/orders** - Создание нового заказа
+- **GET /api/orders/{id}** - Получение заказа по ID
+- **PUT /api/orders/{id}/status** - Обновление статуса заказа
+- **GET /api/orders/customer/{customerId}** - Получение списка заказов клиента
+- **POST /api/orders/{id}/items** - Добавление позиции в заказ
+- **DELETE /api/orders/{id}/items/{itemId}** - Удаление позиции из заказа
+
+### Promotions API
+
+- **GET /api/promotions** - Получение списка активных акций
+- **GET /api/promotions/{id}** - Получение информации об акции по ID
+- **POST /api/promotions** - Создание новой акции
+- **PUT /api/promotions/{id}** - Обновление информации об акции
+- **DELETE /api/promotions/{id}** - Удаление акции
+- **GET /api/promotions/product/{productId}** - Получение акций для конкретного продукта
+
+### Mailings Service
+
+Mailings сервис не имеет публичного API и работает только как потребитель сообщений из Kafka.
 
 ## Структура проекта
 
